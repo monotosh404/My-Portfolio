@@ -1,0 +1,160 @@
+/* MAIN SECTION */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  color: white;
+
+  /* 🔥 MATCH IMAGE COLORS */
+  background:
+    radial-gradient(circle at 75% 50%, rgba(249,115,22,0.25), transparent 40%), /* orange */
+    radial-gradient(circle at 65% 50%, rgba(168,85,247,0.25), transparent 45%), /* purple */
+    linear-gradient(135deg, #020617, #0f0f1a, #020617);
+}
+
+/* LEFT SIDE */
+.hero-left {
+  max-width: 500px;
+  animation: fadeIn 1s ease-in;
+}
+
+/* TAG */
+.tag {
+  color: #a855f7;
+  border: 1px solid #a855f7;
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* NAME */
+.name {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+
+  /* 🔥 MATCH IMAGE */
+  background: linear-gradient(90deg, #a855f7, #ec4899, #f97316);
+  background-size: 200%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 4s linear infinite;
+}
+
+/* TEXT ANIMATION */
+@keyframes shine {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+/* ROLE */
+.role {
+  margin-top: 12px;
+  font-size: 22px;
+  color: #c084fc;
+}
+
+/* DESCRIPTION */
+.desc {
+  margin-top: 15px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 24px;
+  margin-right: 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* PRIMARY */
+.primary {
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  color: white;
+}
+
+.primary:hover {
+     background: #ec4899;
+  box-shadow: 0 0 25px rgba(168,85,247,0.6);
+  transform: translateY(-3px);
+}
+
+/* SECONDARY */
+.secondary {
+  background: transparent;
+  border: 1px solid #555;
+  color: white;
+}
+
+.secondary:hover {
+  background: #ec4899;
+}
+
+/* RIGHT SIDE */
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGE */
+.hero-right img {
+  width: 320px;
+  border-radius: 16px;
+  position: relative;
+  z-index: 2;
+  animation: zoomIn 1s ease;
+}
+
+/* 🔥 ADVANCED GLOW (MATCH IMAGE) */
+.glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+
+  background:
+    radial-gradient(circle, rgba(168,85,247,0.5), transparent 60%),
+    radial-gradient(circle, rgba(249,115,22,0.5), transparent 60%);
+
+  filter: blur(60px);
+  z-index: 1;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
