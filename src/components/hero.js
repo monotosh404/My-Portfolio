@@ -1,6 +1,6 @@
 import "./hero.css";
 import profile from "../Picture/Image.jpg";
-
+import { TypeAnimation } from "react-type-animation";
 function Hero() {
   return (
     <section className="hero">
@@ -10,7 +10,19 @@ function Hero() {
         <p className="tag">Hello, I'm</p>
 
         <h1 className="name">
-          MONOTOSH <br /> PRADHAN
+         <TypeAnimation
+      sequence={[
+        "MONOTOSH PRADHAN",
+        1000,
+        "",
+        500
+        
+      ]}
+      speed={50}
+      repeat={Infinity}
+       style={{ whiteSpace: "nowrap" }}
+    />
+
         </h1>
 
         <h2 className="role">Frontend Developer</h2>
