@@ -1,16 +1,17 @@
 /* MAIN SECTION */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  gap: 50px;
+  padding: 80px 10%;
   color: white;
+  overflow: hidden;
 
-  /* 🔥 MATCH IMAGE COLORS */
   background:
-    radial-gradient(circle at 75% 50%, rgba(249,115,22,0.25), transparent 40%), /* orange */
-    radial-gradient(circle at 65% 50%, rgba(168,85,247,0.25), transparent 45%), /* purple */
+    radial-gradient(circle at 75% 50%, rgba(249,115,22,0.25), transparent 40%),
+    radial-gradient(circle at 65% 50%, rgba(168,85,247,0.25), transparent 45%),
     linear-gradient(135deg, #020617, #0f0f1a, #020617);
 }
 
@@ -18,6 +19,7 @@
 .hero-left {
   max-width: 500px;
   animation: fadeIn 1s ease-in;
+  z-index: 2;
 }
 
 /* TAG */
@@ -33,21 +35,16 @@
 
 /* NAME */
 .name {
-  font-size: 56px;
+  font-size: clamp(38px, 6vw, 56px);
   font-weight: 800;
   line-height: 1.1;
-
-  /* 🔥 MATCH IMAGE */
   background: linear-gradient(90deg, #a855f7, #ec4899, #f97316);
   background-size: 200%;
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
   animation: shine 4s linear infinite;
 }
 
-/* TEXT ANIMATION */
 @keyframes shine {
   0% { background-position: 0%; }
   100% { background-position: 200%; }
@@ -70,11 +67,13 @@
 /* BUTTONS */
 .buttons {
   margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .btn {
   padding: 12px 24px;
-  margin-right: 12px;
   border-radius: 30px;
   cursor: pointer;
   border: none;
@@ -82,19 +81,17 @@
   transition: 0.3s;
 }
 
-/* PRIMARY */
 .primary {
   background: linear-gradient(90deg, #a855f7, #ec4899);
   color: white;
 }
 
 .primary:hover {
-     background: #ec4899;
+  background: #ec4899;
   box-shadow: 0 0 25px rgba(168,85,247,0.6);
   transform: translateY(-3px);
 }
 
-/* SECONDARY */
 .secondary {
   background: transparent;
   border: 1px solid #555;
@@ -111,27 +108,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 /* IMAGE */
 .hero-right img {
-  width: 320px;
+  width: min(320px, 80vw);
   border-radius: 16px;
   position: relative;
   z-index: 2;
   animation: zoomIn 1s ease;
 }
 
-/* 🔥 ADVANCED GLOW (MATCH IMAGE) */
+/* GLOW */
 .glow {
   position: absolute;
   width: 380px;
   height: 380px;
-
   background:
     radial-gradient(circle, rgba(168,85,247,0.5), transparent 60%),
     radial-gradient(circle, rgba(249,115,22,0.5), transparent 60%);
-
   filter: blur(60px);
   z-index: 1;
 }
@@ -156,5 +152,60 @@
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px 50px;
+    gap: 35px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .name {
+    font-size: 42px;
+  }
+
+  .role {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 14px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .hero-right img {
+    width: 230px;
+  }
+
+  .glow {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+@media (max-width: 420px) {
+  .name {
+    font-size: 36px;
+  }
+
+  .hero-right img {
+    width: 200px;
+  }
+
+  .btn {
+    padding: 11px 18px;
+    font-size: 14px;
   }
 }
